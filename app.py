@@ -17,6 +17,11 @@ def item(item_id):
     item = db.get_item(item_id)
     return render_template("item.html", item = item )
 
+@app.route("/help")
+def help():
+    categoris = db.get_categori()
+    return render_template("help.html", categoris = categoris)
+
 @app.route("/order/<item_id>", methods = ["GET", "POST"])
 def order(item_id):
     categoris = db.get_categori()
